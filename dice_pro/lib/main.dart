@@ -1,7 +1,20 @@
+import 'package:dice_pro/two_dices.dart';
 import 'package:flutter/material.dart';
 
+import 'one_dice.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyApp(),
+        '/one_dice': (context) => const OneDice(),
+        '/two_dices': (context) => const TwoDices(),
+      },
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -9,27 +22,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      home: Scaffold(
-        backgroundColor: Colors.redAccent,
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Center(
-            child: Text(
-              "Dice game",
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
+    return Scaffold(
+      backgroundColor: Colors.redAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Center(
+          child: Text(
+            "Dice game",
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.white,
             ),
           ),
         ),
-        body: Column(
+      ),
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          // children: [TextButton(onPressed: onPressed, child: child)],
+          children: [
+            const Text("Select dice"),
+            TextButton(
+                onPressed: () => Navigator.pushNamed(context, '/one_dice'),
+                child: const Text("One dice")),
+            TextButton(
+                onPressed: () => Navigator.pushNamed(context, '/two_dices'),
+                child: const Text("Two dices")),
+          ],
         ),
       ),
     );
