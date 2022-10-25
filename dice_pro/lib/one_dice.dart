@@ -10,7 +10,7 @@ class OneDice extends StatefulWidget {
 }
 
 class _OneDiceState extends State<OneDice> {
-  int dice = 1;
+  int dice = 2;
 
   void change() {
     setState(() {
