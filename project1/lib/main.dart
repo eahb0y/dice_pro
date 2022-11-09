@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Question.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -26,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           elevation: 10.0,
-          backgroundColor: Colors.black54,
+          backgroundColor: Colors.blue.shade900,
           title: Center(child: const Text("Demo quize app")),
         ),
         body: Column(
@@ -38,12 +40,7 @@ class _MyAppState extends State<MyApp> {
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Center(
-                      child: Text(
-                        question[questionIndex],
-                        style: const TextStyle(
-                          fontSize: 25.0,
-                        ),
-                      ),
+                      child: Question(question[questionIndex]),
                     ),
                   ),
                 )),
@@ -54,21 +51,21 @@ class _MyAppState extends State<MyApp> {
                   children: [
                     TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.indigo.shade700,
+                          backgroundColor: Colors.blueAccent,
                         ),
                         onPressed: answerQuestion,
                         child: const Text(
                           'True',
-                          style: TextStyle(fontSize: 15.0),
+                          style: TextStyle(fontSize: 15.0, color: Colors.white),
                         )),
                     TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.indigo.shade700,
+                          backgroundColor: Colors.blueAccent,
                         ),
                         onPressed: answerQuestion,
                         child: const Text(
                           'False',
-                          style: TextStyle(fontSize: 15.0),
+                          style: TextStyle(fontSize: 15.0, color: Colors.white),
                         ))
                   ],
                 ))
